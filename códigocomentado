@@ -1,0 +1,30 @@
+using System;
+
+class CarroMonitoramento
+{
+    // Método estático que verifica se o carro está apto.
+    // Recebe o ano de fabricação e o ano atual como parâmetros.
+    public static bool VerificarAptidao(int anoFabricacao, int anoAtual)
+    {
+        // Calcula a idade do carro.
+        int idade = anoAtual - anoFabricacao;
+        
+        // Retorna verdadeiro (true) se a idade for menor ou igual a 10 anos.
+        return idade <= 10;
+    }
+
+    static void Main()
+    {
+        // Lendo os dados de entrada do usuário.
+        string modelo = Console.ReadLine();
+        int anoFabricacao = int.Parse(Console.ReadLine());
+        int anoAtual = int.Parse(Console.ReadLine());
+
+        // Chama o método estático VerificarAptidao para obter o status.
+        // O operador ternário formata a string de resultado.
+        string resultado = VerificarAptidao(anoFabricacao, anoAtual) ? $"{modelo}: Apto" : $"{modelo}: Nao apto";
+
+        // Exibindo o resultado final no console.
+        Console.WriteLine(resultado);
+    }
+}
